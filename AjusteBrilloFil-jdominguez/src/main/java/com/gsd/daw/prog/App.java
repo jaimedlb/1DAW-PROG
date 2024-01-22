@@ -4,5 +4,6 @@ public class App {
 	public static void main(String[] args) {
 		
 		ImagenFil.ConversorArray(args);
+		ImagenFil.StringconversorFil(args);
 		} 
 	}

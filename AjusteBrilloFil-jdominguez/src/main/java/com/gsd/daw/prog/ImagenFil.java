@@ -2,6 +2,7 @@ package com.gsd.daw.prog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ImagenFil {
@@ -29,5 +30,17 @@ public class ImagenFil {
 		}
 		System.out.println();
 		return parametros;
+	}
+	public static String[] StringconversorFil(String[] fil) {
+		String[] nombreSpliteado=String.valueOf(fil[0]).split("\\.");
+		String h=nombreSpliteado[0];
+		
+		
+		System.out.println(h);
+		/*try {
+			File archivo =new File("");
+		}catch (IOException e) {
+		}*/
+		return null;
 	}
 }
