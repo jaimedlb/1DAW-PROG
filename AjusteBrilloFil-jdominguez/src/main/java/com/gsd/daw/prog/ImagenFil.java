@@ -37,10 +37,10 @@ public class ImagenFil {
 		
 		
 		System.out.println(h);
-		/*try {
+		try {
 			File archivo =new File("");
 		}catch (IOException e) {
-		}*/
+		}
 		return null;
 	}
 }
