@@ -14,13 +14,13 @@ public class ImagenFil {
 
 		} catch (FileNotFoundException e) {
 			System.err.println("ERROR: no se puede abrir el fichero [" + fil[0] + "]");
-		} String linea = inputFile.nextLine();
+		} inputFile.nextLine();
 		int filas=Integer.parseInt(inputFile.nextLine());
 		int columnas=Integer.parseInt(inputFile.nextLine());
 		String[] parametros=new String[filas*columnas];
 		
 		for (int i = 0; i < parametros.length; i++) {
-			linea=inputFile.nextLine();
+			String linea=inputFile.nextLine();
 			parametros[i]=linea;
 
 		}
