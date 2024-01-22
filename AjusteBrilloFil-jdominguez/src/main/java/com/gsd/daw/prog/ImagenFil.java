@@ -34,7 +34,7 @@ public class ImagenFil {
 	public static String[] StringconversorFil(String[] fil) {
 		String[] nombreSpliteado=String.valueOf(fil[0]).split("\\.");
 		String h=nombreSpliteado[0];
-		
+		String hola="";
 		
 		System.out.println(h);
 		try {
