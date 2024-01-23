@@ -9,7 +9,7 @@ public class App {
 		System.out.println(imagen[0]);
 		System.out.println(imagen[1]);
 		System.out.println(imagen[2]);
-		for (int i = 3; i < imagen.length - 3; i++) {
+		for (int i = 3; i < imagen.length ; i++) {
 		 numerosSpliteados = imagen[i].split(",");
 			int[] numerosSpliteadosInt = new int[3];
 			for (int j = 0; j < numerosSpliteados.length; j++) {

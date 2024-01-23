@@ -2,8 +2,6 @@ package com.gsd.daw.prog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class ImagenFil {
@@ -17,8 +15,7 @@ public class ImagenFil {
 		} catch (FileNotFoundException e) {
 			System.err.println("ERROR: no se puede abrir el fichero [" + fil[0] + "]");
 		}
-		String comentario="#"+String.valueOf(fil[0]);
-		inputFile.nextLine();
+		String comentario=String.valueOf(inputFile.nextLine());
 		int filas = Integer.parseInt(inputFile.nextLine());
 		int columnas = Integer.parseInt(inputFile.nextLine());
 		String[] parametros = new String[(filas * columnas)+3];
