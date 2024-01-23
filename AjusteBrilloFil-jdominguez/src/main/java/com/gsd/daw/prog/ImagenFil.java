@@ -34,7 +34,7 @@ public class ImagenFil {
 		System.out.println();
 		return parametros;
 	}
-	public static File StringconversorFil(String[] fil) {
+	public static boolean StringconversorFil(String[] fil) {
 		
 		try {
 		String[] nombreSpliteado=String.valueOf(fil[0]).split("#|\\.");
@@ -55,8 +55,9 @@ public class ImagenFil {
 		}catch (IOException e) {
 			System.out.println("Ha ocurrido un error al crear el archivo.");
             e.printStackTrace();
+            return false;
 		}
-		return archivo;
+		return true;
 	}
 }
 
