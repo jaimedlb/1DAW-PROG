@@ -5,8 +5,9 @@ public class App {
 	public static void main(String[] args) {
 
 		String[] imagen = ImagenFil.ConversorArray(args);
-		for (int i = 2; i < imagen.length - 3; i++) {
-			String[] numerosSpliteados = imagen[i].split(",");
+		String[] numerosSpliteados=new String[3];
+		for (int i = 3; i < imagen.length - 3; i++) {
+		 numerosSpliteados = imagen[i].split(",");
 			int[] numerosSpliteadosInt = new int[3];
 			for (int j = 0; j < numerosSpliteados.length; j++) {
 				numerosSpliteadosInt[j] = Integer.parseInt(numerosSpliteados[j]);
@@ -18,9 +19,10 @@ public class App {
 					numerosSpliteadosInt[j] = 255;
 				}
 			}
-
-			
-			
+			for (int j = 0; j < numerosSpliteadosInt.length; j++) {
+				numerosSpliteados[j]=String.valueOf(numerosSpliteadosInt[j]);
+			}
+			imagen[i]=numerosSpliteados[0]+","+numerosSpliteados[1]+","+numerosSpliteados[2];	
 			
 		}
 		ImagenFil.StringconversorFil(imagen);
