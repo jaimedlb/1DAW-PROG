@@ -3,8 +3,14 @@ package com.gsd.daw.prog;
 public class App {
 
 	public static void main(String[] args) {
-
+		
+		if(!Utilidades.ComprobarRobustez(args)) {
+			return;
+		}
 		String[] imagen = ImagenFil.ConversorArray(args);
+		if(imagen==null) {
+			return;
+		}
 		String[] numerosSpliteados=new String[3];
 		System.out.println(imagen[0]);
 		System.out.println(imagen[1]);

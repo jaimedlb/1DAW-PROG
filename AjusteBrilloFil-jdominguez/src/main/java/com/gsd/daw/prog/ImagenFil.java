@@ -14,6 +14,7 @@ public class ImagenFil {
 
 		} catch (FileNotFoundException e) {
 			System.err.println("ERROR: no se puede abrir el fichero [" + fil[0] + "]");
+			return null;
 		}
 		String comentario=String.valueOf(inputFile.nextLine());
 		int filas = Integer.parseInt(inputFile.nextLine());
