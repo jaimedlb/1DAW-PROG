@@ -6,6 +6,9 @@ public class App {
 
 		String[] imagen = ImagenFil.ConversorArray(args);
 		String[] numerosSpliteados=new String[3];
+		System.out.println(imagen[0]);
+		System.out.println(imagen[1]);
+		System.out.println(imagen[2]);
 		for (int i = 3; i < imagen.length - 3; i++) {
 		 numerosSpliteados = imagen[i].split(",");
 			int[] numerosSpliteadosInt = new int[3];
@@ -24,8 +27,9 @@ public class App {
 			}
 			imagen[i]=numerosSpliteados[0]+","+numerosSpliteados[1]+","+numerosSpliteados[2];	
 			
+				System.out.println(imagen[i]);	
+			
 		}
-		ImagenFil.StringconversorFil(imagen);
 
 	}
 }

@@ -31,10 +31,10 @@ public class ImagenFil {
 			parametros[i] = linea;
 
 		}
-		System.out.println();
+
 		return parametros;
 	}
-	public static boolean StringconversorFil(String[] fil) {
+	/*public static boolean StringconversorFil(String[] fil) {
 		
 		try {
 		String[] nombreSpliteado=String.valueOf(fil[0]).split("#|\\.");
@@ -43,7 +43,7 @@ public class ImagenFil {
 		File archivo =new File(nombreFinal);
 			 
 			FileWriter escribo = new FileWriter(archivo);
-			escribo.write(nombreFinal+"\n");
+			escribo.write("#"+nombreFinal+"\n");
 			for (int i = 1; i < fil.length; i++) {
 				if(i==fil.length-1) {
 					escribo.write(fil[i]);
@@ -58,6 +58,6 @@ public class ImagenFil {
             return false;
 		}
 		return true;
-	}
+	}*/
 }
 
