@@ -4,14 +4,10 @@ public class Utilidades {
 	public static boolean robustez(String[] argumentos) {
 		boolean cierto = true;
 		int C = 0, P = 0, A = 0, T = 0;
-		if (argumentos.length == 0) {
-			System.out.println("ponme algun argumento");
-			return cierto = false;
+		if (argumentos.length > 4 ||argumentos.length < 20) {
+			System.out.println("argumento no valido, Limite: <4-20>");
+			return false;
 		}
-		if (argumentos.length > 20) {
-			System.out.println("no pongas mas de 20 argumentos");
-			return cierto = false;
-		} else {
 			for (int i = 0; i < argumentos.length; i++) {
 				String[] caracteres = (argumentos[i].split("-"));
 				if (caracteres.length == 1) {
@@ -75,6 +71,6 @@ public class Utilidades {
 				System.out.println("tiene que haber al menos una nota de examen, practicas, asistencia y actitud");
 				return cierto = false;
 			}
-		}
+		
 	}
 }
