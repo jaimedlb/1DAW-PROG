@@ -15,8 +15,7 @@ public class Utilidades {
 				System.out.println("pasame bien el formato [CPTA]-<numero-decimal>");
 				return false;
 			}
-			if ((!caracteres[0].equals("C") && !caracteres[0].equals("P") && !caracteres[0].equals("A")
-					&& !caracteres[0].equals("T"))) {
+			if ((!caracteres[0].equals("C") && !caracteres[0].equals("P") && !caracteres[0].equals("A") && !caracteres[0].equals("T"))) {
 				System.out.println("pasame bien el formato [CPTA]-<numero-decimal>");
 				return false;
 			}
@@ -29,28 +28,28 @@ public class Utilidades {
 
 			if ((caracteres[0].equals("C"))) {
 				C++;
-				if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 10) {
+				if (Double.parseDouble(caracteres[1]) > 10) {
 					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
 					return false;
 				}
 			}
 			if ((caracteres[0].equals("P"))) {
 				P++;
-				if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 10) {
+				if (Double.parseDouble(caracteres[1]) > 10) {
 					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
 					return false;
 				}
 			}
 			if ((caracteres[0].equals("A"))) {
 				A++;
-				if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
+				if (Double.parseDouble(caracteres[1]) > 1) {
 					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
 					return false;
 				}
 			}
 			if ((caracteres[0].equals("T"))) {
 				T++;
-				if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
+				if (Double.parseDouble(caracteres[1]) > 1) {
 					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
 					return false;
 				}
@@ -58,7 +57,7 @@ public class Utilidades {
 
 		}
 
-		if (C < 0 && P < 0 && A != 1 && T != 1) {
+		if (C < 1 || P < 1 || A != 1 || T != 1) {
 			System.out.println("tiene que haber al menos una nota de examen, practicas, asistencia y actitud");
 			return false;
 		}
@@ -69,8 +68,12 @@ public class Utilidades {
 	public static String imprimirNota(double nota) {
 		if (nota == 10) {
 			return "MH";
-		} DecimalFormat df = new DecimalFormat("#.00");
-			return String.valueOf(df.format(nota));
-	
+		}
+		if(nota==0) {
+			return "0,00";
+		}
+		DecimalFormat df = new DecimalFormat("#.00");
+		return String.valueOf(df.format(nota));
+
 	}
 }

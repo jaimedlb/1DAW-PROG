@@ -42,13 +42,13 @@ public class Calculadora {
 			}
 		}
 		if (notaFinal == 0.0) {
-			System.out.println(0);
-			return "";
+			
+			return Utilidades.imprimirNota(notaFinal);
 		}
 		double mediaT = ((notasP / P) + (notasC / C)) / 2;
-		if (mediaT < 4) {
+		if (mediaT < 5) {
 			notaFinal = mediaT;
-			return "";
+			return Utilidades.imprimirNota(notaFinal);
 		}
 		notaFinal = (mediaT * 0.8) + (notaAc + notaAs);
 
