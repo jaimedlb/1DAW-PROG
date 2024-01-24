@@ -18,7 +18,7 @@ public class Utilidades {
 		return true;
 	}
 
-	public static boolean comprobarLineas(String file, int tamaño) throws IOException {
+	public static boolean comprobarNumeroLineas(String file, int tamaño) throws IOException {
 		File archivo = new File(file);
 		FileReader arhivoLectura = new FileReader(archivo);
 		BufferedReader bufferArchivo = new BufferedReader(arhivoLectura);

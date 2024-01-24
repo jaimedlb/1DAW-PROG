@@ -16,6 +16,12 @@ public class App {
 			numerosSpliteados = imagen[i].split(",");
 			int[] numerosSpliteadosInt = new int[3];
 			for (int j = 0; j < numerosSpliteados.length; j++) {
+				try {
+					numerosSpliteadosInt[j] = Integer.parseInt(numerosSpliteados[j]);
+				} catch (Exception e) {
+					System.err.println("El formato de RGB tiene que ser 0-255,0-255,0-255");
+					return;
+				}
 				numerosSpliteadosInt[j] = Integer.parseInt(numerosSpliteados[j]);
 				numerosSpliteadosInt[j] = numerosSpliteadosInt[j] + Integer.parseInt(args[1]);
 				if (numerosSpliteadosInt[j] < 0) {

@@ -33,7 +33,7 @@ public class ImagenFil {
 		}
 		try {
 
-			if (!Utilidades.comprobarLineas(fil[0], (filas * columnas))) {
+			if (!Utilidades.comprobarNumeroLineas(fil[0], (filas * columnas))) {
 				inputFile.close();
 				System.err.println("la Filas X columnas no concuerda con los datos");
 				return null;
