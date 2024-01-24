@@ -6,7 +6,8 @@ public class Calculadora {
 	
 
 	public static void calculadora(String[] argumentos) {
-		if (Utilidades.robustez(argumentos)) {
+		if (!Utilidades.robustez(argumentos)) {
+			return;}
 			Double notaFinal = 0.1;
 			Double notasC = 0.0;
 			Double notasP = 0.0;
@@ -62,4 +63,4 @@ public class Calculadora {
 
 		}
 	}
-}
+

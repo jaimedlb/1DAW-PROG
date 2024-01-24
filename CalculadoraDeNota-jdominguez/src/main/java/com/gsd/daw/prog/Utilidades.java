@@ -3,7 +3,7 @@ package com.gsd.daw.prog;
 public class Utilidades {
 	public static boolean robustez(String[] argumentos) {
 		int C = 0, P = 0, A = 0, T = 0;
-		if (argumentos.length > 4 || argumentos.length < 20) {
+		if (argumentos.length < 4 || argumentos.length > 20) {
 			System.out.println("argumento no valido, Limite: <4-20>");
 			return false;
 		}
@@ -13,9 +13,9 @@ public class Utilidades {
 				System.out.println("pasame bien el formato [CPTA]-<numero-decimal>");
 				return false;
 			}
-			if ((!caracteres[0].equals("C") || !caracteres[0].equals("P") || !caracteres[0].equals("A")
-					|| !caracteres[0].equals("T"))) {
-				System.out.println("pasamed bien el formato [CPTA]-<numero-decimal>");
+			if ((!caracteres[0].equals("C") && !caracteres[0].equals("P") && !caracteres[0].equals("A")
+					&& !caracteres[0].equals("T"))) {
+				System.out.println("pasame bien el formato [CPTA]-<numero-decimal>");
 				return false;
 			}
 			try {
@@ -38,7 +38,7 @@ public class Utilidades {
 					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
 					return false;
 				}
-
+			}
 				if ((caracteres[0].equals("A"))) {
 					A++;
 					if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
@@ -46,6 +46,7 @@ public class Utilidades {
 								"ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
 						return false;
 					}
+				}
 					if ((caracteres[0].equals("T"))) {
 						T++;
 						if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
@@ -55,8 +56,8 @@ public class Utilidades {
 						}
 					}
 
-				}
-			}
+				
+			
 
 		}
 
@@ -65,7 +66,6 @@ public class Utilidades {
 			return false;
 		}
 		return true;
-		
 
 	}
 }
