@@ -2,7 +2,6 @@ package com.gsd.daw.prog;
 
 public class Utilidades {
 	public static boolean robustez(String[] argumentos) {
-		boolean cierto = true;
 		int C = 0, P = 0, A = 0, T = 0;
 		if (argumentos.length > 4 || argumentos.length < 20) {
 			System.out.println("argumento no valido, Limite: <4-20>");
@@ -26,48 +25,47 @@ public class Utilidades {
 				return false;
 			}
 
-				if ((caracteres[0].equals("C"))) {
-					C++;
-					if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 10) {
+			if ((caracteres[0].equals("C"))) {
+				C++;
+				if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 10) {
+					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
+					return false;
+				}
+			}
+			if ((caracteres[0].equals("P"))) {
+				P++;
+				if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 10) {
+					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
+					return false;
+				}
+
+				if ((caracteres[0].equals("A"))) {
+					A++;
+					if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
 						System.out.println(
 								"ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
-						return cierto = false;
+						return false;
 					}
-				} else {
-					if ((caracteres[0].equals("P"))) {
-						P++;
-						if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 10) {
+					if ((caracteres[0].equals("T"))) {
+						T++;
+						if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
 							System.out.println(
 									"ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
-							return cierto = false;
-						}
-					} else {
-						if ((caracteres[0].equals("A"))) {
-							A++;
-							if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
-								System.out.println("ERROR: el numero en la nota [" + argumentos[i]
-										+ "] no esta dentro de limites");
-								return cierto = false;
-							}
-						} else {
-							T++;
-							if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
-								System.out.println("ERROR: el numero en la nota [" + argumentos[i]
-										+ "] no esta dentro de limites");
-								return cierto = false;
-							}
+							return false;
 						}
 					}
+
 				}
-			
+			}
+
 		}
 
-		if (C >= 1 && P >= 1 && A == 1 && T == 1) {
-			return cierto;
-		} else {
+		if (C < 0 && P < 0 && A != 1 && T != 1) {
 			System.out.println("tiene que haber al menos una nota de examen, practicas, asistencia y actitud");
-			return cierto = false;
+			return false;
 		}
+		return true;
+		
 
 	}
 }
