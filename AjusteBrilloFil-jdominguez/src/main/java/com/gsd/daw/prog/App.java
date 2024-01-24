@@ -3,20 +3,17 @@ package com.gsd.daw.prog;
 public class App {
 
 	public static void main(String[] args) {
-		
-		if(!Utilidades.ComprobarRobustez(args)) {
+
+		if (!Utilidades.ComprobarRobustez(args)) {
 			return;
 		}
 		String[] imagen = ImagenFil.ConversorArray(args);
-		if(imagen==null) {
+		if (imagen == null) {
 			return;
 		}
-		String[] numerosSpliteados=new String[3];
-		System.out.println(imagen[0]);
-		System.out.println(imagen[1]);
-		System.out.println(imagen[2]);
-		for (int i = 3; i < imagen.length ; i++) {
-		 numerosSpliteados = imagen[i].split(",");
+		String[] numerosSpliteados = new String[3];
+		for (int i = 3; i < imagen.length; i++) {
+			numerosSpliteados = imagen[i].split(",");
 			int[] numerosSpliteadosInt = new int[3];
 			for (int j = 0; j < numerosSpliteados.length; j++) {
 				numerosSpliteadosInt[j] = Integer.parseInt(numerosSpliteados[j]);
@@ -29,13 +26,13 @@ public class App {
 				}
 			}
 			for (int j = 0; j < numerosSpliteadosInt.length; j++) {
-				numerosSpliteados[j]=String.valueOf(numerosSpliteadosInt[j]);
+				numerosSpliteados[j] = String.valueOf(numerosSpliteadosInt[j]);
 			}
-			imagen[i]=numerosSpliteados[0]+","+numerosSpliteados[1]+","+numerosSpliteados[2];	
-			
-				System.out.println(imagen[i]);	
-			
-		}
+			imagen[i] = numerosSpliteados[0] + "," + numerosSpliteados[1] + "," + numerosSpliteados[2];
 
+		}
+		for (int i = 0; i < imagen.length; i++) {
+			System.out.println(imagen[i]);
+		}
 	}
 }
