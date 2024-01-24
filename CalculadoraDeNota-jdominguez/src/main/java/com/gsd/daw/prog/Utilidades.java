@@ -1,5 +1,7 @@
 package com.gsd.daw.prog;
 
+import java.text.DecimalFormat;
+
 public class Utilidades {
 	public static boolean robustez(String[] argumentos) {
 		int C = 0, P = 0, A = 0, T = 0;
@@ -39,25 +41,20 @@ public class Utilidades {
 					return false;
 				}
 			}
-				if ((caracteres[0].equals("A"))) {
-					A++;
-					if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
-						System.out.println(
-								"ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
-						return false;
-					}
+			if ((caracteres[0].equals("A"))) {
+				A++;
+				if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
+					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
+					return false;
 				}
-					if ((caracteres[0].equals("T"))) {
-						T++;
-						if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
-							System.out.println(
-									"ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
-							return false;
-						}
-					}
-
-				
-			
+			}
+			if ((caracteres[0].equals("T"))) {
+				T++;
+				if (Double.parseDouble(caracteres[1]) < 0 || Double.parseDouble(caracteres[1]) > 1) {
+					System.out.println("ERROR: el numero en la nota [" + argumentos[i] + "] no esta dentro de limites");
+					return false;
+				}
+			}
 
 		}
 
@@ -67,5 +64,13 @@ public class Utilidades {
 		}
 		return true;
 
+	}
+
+	public static String imprimirNota(double nota) {
+		if (nota == 10) {
+			return "MH";
+		} DecimalFormat df = new DecimalFormat("#.00");
+			return String.valueOf(df.format(nota));
+	
 	}
 }
