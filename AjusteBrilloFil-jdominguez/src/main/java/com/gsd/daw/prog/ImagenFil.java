@@ -26,7 +26,7 @@ public class ImagenFil {
 			filas = Integer.parseInt(inputFile.nextLine());
 			columnas = Integer.parseInt(inputFile.nextLine());
 		} catch (Exception e) {
-			System.err.println("Las lineas 2 y 3 tiene que ser numero para saber la longitud");
+			System.err.println("Las lineas 2 y 3 tiene que ser un numero para saber la longitud");
 			inputFile.close();
 			return null;
 
@@ -35,6 +35,7 @@ public class ImagenFil {
 
 			if (!Utilidades.comprobarLineas(fil[0], (filas * columnas))) {
 				inputFile.close();
+				System.err.println("la Filas X columnas no concuerda con los datos");
 				return null;
 			}
 		} catch (IOException e) {

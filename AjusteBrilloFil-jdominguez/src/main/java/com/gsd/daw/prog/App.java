@@ -13,7 +13,7 @@ public class App {
 		}
 		String[] numerosSpliteados = new String[3];
 		for (int i = 3; i < imagen.length; i++) {
-			
+			numerosSpliteados = imagen[i].split(",");
 			int[] numerosSpliteadosInt = new int[3];
 			for (int j = 0; j < numerosSpliteados.length; j++) {
 				numerosSpliteadosInt[j] = Integer.parseInt(numerosSpliteados[j]);
