@@ -1,6 +1,9 @@
 package com.gsd.daw.prog;
+
+import java.io.BufferedReader;
 import java.io.File;
-import java.util.Scanner;
+import java.io.FileReader;
+import java.io.IOException;
 public class Utilidades {
 	public static boolean ComprobarRobustez(String[] args) {
 		if (args.length != 2) {
@@ -15,9 +18,20 @@ public class Utilidades {
 		return true;
 	}
 
-	public static boolean comprobarLineas (File archivo) {
-	
-		
-		return true;
+	public static boolean comprobarLineas(String file, int tamaño) throws IOException {
+		File archivo = new File(file);
+		FileReader arhivoLectura = new FileReader(archivo);
+		BufferedReader bufferArchivo = new BufferedReader(arhivoLectura);
+		int contadorLineas = 0;
+		String linea = bufferArchivo.readLine();
+		while (linea != null) {
+			contadorLineas++;
+			linea = bufferArchivo.readLine();
+		}
+		if ((contadorLineas - 3) == tamaño) {
+			return true;
+		}
+		return false;
 	}
+
 }

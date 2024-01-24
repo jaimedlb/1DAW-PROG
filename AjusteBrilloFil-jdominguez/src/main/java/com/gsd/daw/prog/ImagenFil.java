@@ -2,6 +2,7 @@ package com.gsd.daw.prog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ImagenFil {
@@ -10,6 +11,7 @@ public class ImagenFil {
 		Scanner inputFile = null;
 		int filas = 0;
 		int columnas = 0;
+
 		try {
 			File f = new File(fil[0]);
 			inputFile = new Scanner(f);
@@ -27,6 +29,16 @@ public class ImagenFil {
 			System.err.println("Las lineas 2 y 3 tiene que ser numero para saber la longitud");
 			inputFile.close();
 			return null;
+
+		}
+		try {
+
+			if (!Utilidades.comprobarLineas(fil[0], (filas * columnas))) {
+				inputFile.close();
+				return null;
+			}
+		} catch (IOException e) {
+			System.err.println("Error en archivo");
 		}
 
 		String[] parametros = new String[(filas * columnas) + 3];
