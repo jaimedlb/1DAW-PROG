@@ -17,9 +17,9 @@ public class App {
 		try {
 			escribo = new FileWriter(archivo);
 			escribo.write("# archivo Generado aleatoriamente \n");
-			escribo.write(fila+"\n");
-			escribo.write(columna+"\n");
-			for (int i = 0; i < (fila * columna)-1; i++) {
+			escribo.write(ancho+"\n");
+			escribo.write(alto+"\n");
+			for (int i = 0; i < (ancho * alto)-1; i++) {
 				escribo.write(GenereadorFil.GeneradorAleatorioRGB()+"\n");
 			}
 			escribo.write(GenereadorFil.GeneradorAleatorioRGB());
