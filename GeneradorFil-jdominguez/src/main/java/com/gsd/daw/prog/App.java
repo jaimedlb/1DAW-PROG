@@ -11,8 +11,8 @@ public class App {
 
 	public static void main(String[] args) {
 		File archivo = new File("aleatorio.fil");
-		int fila = Integer.parseInt(args[0]);
-		int columna = Integer.parseInt(args[1]);
+		int ancho = Integer.parseInt(args[0]);
+		int alto = Integer.parseInt(args[1]);
 		FileWriter escribo = null;
 		try {
 			escribo = new FileWriter(archivo);
