@@ -22,6 +22,10 @@ public class App {
 					System.err.println("El formato de RGB tiene que ser 0-255,0-255,0-255");
 					return;
 				}
+				if (numerosSpliteadosInt[j] > 255 || numerosSpliteadosInt[j] < 0) {
+					System.err.println("El formato de RGB tiene que ser 0-255,0-255,0-255");
+					return;
+				}
 				numerosSpliteadosInt[j] = Integer.parseInt(numerosSpliteados[j]);
 				numerosSpliteadosInt[j] = numerosSpliteadosInt[j] + Integer.parseInt(args[1]);
 				if (numerosSpliteadosInt[j] < 0) {
