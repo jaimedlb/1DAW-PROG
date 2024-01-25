@@ -3,6 +3,7 @@ package com.gsd.daw.prog;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GenereadorFil {
@@ -32,10 +33,18 @@ public class GenereadorFil {
 		}
 		return true;
 	}
-	public static String[] GeneradorAleatorioRGB(){
-		int[] ValoresInt= new int[3];
+	public static String GeneradorAleatorioRGB(){
+		int[] valoresInt= new int[3];
 		Random random = new Random();
 		int randomNumber = random.nextInt(256);
+		for(int i=0;i<valoresInt.length;i++){
+valoresInt[i]=random.nextInt();
+		}
+		String valoresString="";
+		for(int i=0;i<valoresInt.length;i++){
+		valoresString=valoresString+String.valueOf(valoresInt[i])+",";
+
+					}
 		
 		
 		return null;
