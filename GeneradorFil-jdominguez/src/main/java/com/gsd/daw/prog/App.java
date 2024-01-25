@@ -17,18 +17,19 @@ public class App {
 		try {
 			escribo = new FileWriter(archivo);
 			escribo.write("# archivo Generado aleatoriamente \n");
-			escribo.write(fila);
-			escribo.write(columna);
-			for (int i = 0; i == fila * columna; i++) {
-
-				escribo.write(GenereadorFil.GeneradorAleatorioRGB());
+			escribo.write(fila+"\n");
+			escribo.write(columna+"\n");
+			for (int i = 0; i < (fila * columna)-1; i++) {
+				escribo.write(GenereadorFil.GeneradorAleatorioRGB()+"\n");
 			}
+			escribo.write(GenereadorFil.GeneradorAleatorioRGB());
+
 			escribo.close();
 
 		} catch (Exception e) {
 			System.err.println("no se encuentra el archivo");
 			return;
 		}
-
+		
 	}
 }
