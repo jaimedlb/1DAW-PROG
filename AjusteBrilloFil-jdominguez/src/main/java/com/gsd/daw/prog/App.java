@@ -4,10 +4,10 @@ public class App {
 
 	public static void main(String[] args) {
 
-		if (!Utilidades.ComprobarRobustez(args)) {
+		if (!Utilidades.comprobarRobustez(args)) {
 			return;
 		}
-		String[] imagen = ImagenFil.ConversorArray(args);
+		String[] imagen = ImagenFil.conversorArray(args);
 		if (imagen == null) {
 			return;
 		}

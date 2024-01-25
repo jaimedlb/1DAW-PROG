@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 public class Utilidades {
-	public static boolean ComprobarRobustez(String[] args) {
+	public static boolean comprobarRobustez(String[] args) {
 		if (args.length != 2) {
 			System.err.println("pasame dos argumentos");
 			return false;
@@ -29,8 +29,10 @@ public class Utilidades {
 			linea = bufferArchivo.readLine();
 		}
 		if ((contadorLineas - 3) == tamaño) {
+			bufferArchivo.close();
 			return true;
 		}
+		bufferArchivo.close();
 		return false;
 	}
 

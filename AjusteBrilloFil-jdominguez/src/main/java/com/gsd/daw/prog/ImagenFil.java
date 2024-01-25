@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ImagenFil {
 
-	public static String[] ConversorArray(String[] fil) {
+	public static String[] conversorArray(String[] fil) {
 		Scanner inputFile = null;
 		int filas = 0;
 		int columnas = 0;
