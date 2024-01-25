@@ -37,18 +37,22 @@ public class GenereadorFil {
 	public static String GeneradorAleatorioRGB(){
 		int[] valoresInt= new int[3];
 		Random random = new Random();
-		int randomNumber = random.nextInt(256);
 		for(int i=0;i<valoresInt.length;i++){
-valoresInt[i]=random.nextInt();
+			int randomNumber = random.nextInt(256);
+valoresInt[i]=randomNumber;
 		}
 		String valoresString="";
 		for(int i=0;i<valoresInt.length;i++){
-		valoresString=valoresString+String.valueOf(valoresInt[i])+",";
+			if(i==valoresInt.length-1){
+				valoresString=valoresString+String.valueOf(valoresInt[i]);
+			}else{
+				valoresString=valoresString+String.valueOf(valoresInt[i])+",";
+			}
 
 					}
 		
 		
-		return null;
+		return valoresString;
 
 	}
 
