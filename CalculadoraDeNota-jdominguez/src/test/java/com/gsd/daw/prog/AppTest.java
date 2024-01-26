@@ -139,5 +139,10 @@ public class AppTest {
 		String[] args = {"C-3","P-5","A-0","T-0"};
 		String test = Calculadora.calculadora(args);
 		assertEquals("4,00", test);
+	}@Test
+	public void pruebaApp() {
+		String[] args = {"C-3","P-5","A-0","T-0"};
+		App.main(args);
+	
 	}
 }
