@@ -28,7 +28,7 @@ public class Utilidades {
 		return true;
 	}
 
-	public static boolean comprobarNumeroLineas(String file, int tamaño) throws IOException {
+	public static boolean comprobarNumeroLineas(String file, int tamano) throws IOException {
 		File archivo = new File(file);
 		FileReader arhivoLectura = new FileReader(archivo);
 		BufferedReader bufferArchivo = new BufferedReader(arhivoLectura);
@@ -38,7 +38,7 @@ public class Utilidades {
 			contadorLineas++;
 			linea = bufferArchivo.readLine();
 		}
-		if ((contadorLineas - 3) == tamaño) {
+		if ((contadorLineas - 3) == tamano) {
 			bufferArchivo.close();
 			return true;
 		}

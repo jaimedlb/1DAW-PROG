@@ -145,4 +145,10 @@ public class AppTest {
 		App.main(args);
 	
 	}
+	@Test
+	public void pruebaUtilidades() {
+		String[] args = {"C-3","P-5","A-0","T-0"};
+		Utilidades.robustez(args);
+	
+	}
 }

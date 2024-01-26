@@ -14,6 +14,10 @@ public class App {
 		String[] numerosSpliteados = new String[3];
 		for (int i = 3; i < imagen.length; i++) {
 			numerosSpliteados = imagen[i].split(",");
+			if(numerosSpliteados.length!=3) {
+				System.err.println("El formato de RGB tiene que ser 0-255,0-255,0-255");
+				return;
+			}
 			int[] numerosSpliteadosInt = new int[3];
 			for (int j = 0; j < numerosSpliteados.length; j++) {
 				try {
