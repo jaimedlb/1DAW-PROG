@@ -15,21 +15,21 @@ public class AppTest {
 	}
 
 	@Test
-	public void MatriculaHonor() {
+	public void matriculaHonor() {
 		double nota = 10;
 		String test = Utilidades.imprimirNota(nota);
 		assertEquals("MH", test);
 	}
 
 	@Test
-	public void Nota9() {
+	public void nota9() {
 		double nota = 9;
 		String test = Utilidades.imprimirNota(nota);
 		assertEquals("9,00", test);
 	}
 
 	@Test
-	public void NotaDigitosMayores2() {
+	public void notaDigitosMayores2() {
 		double nota = 9.3234874;
 		String test = Utilidades.imprimirNota(nota);
 		assertEquals("9,32", test);
@@ -68,7 +68,7 @@ public class AppTest {
 		assertEquals(false, test);
 	}
 	@Test
-	public void LetraEnArgumentos() {
+	public void letraEnArgumentos() {
 		String[] args = { "C-1a0", "P-3.99", "A-1","T-1"};
 		boolean test = Utilidades.robustez(args);
 		assertEquals(false, test);
@@ -106,31 +106,31 @@ public class AppTest {
 		assertEquals(false, test);
 	}
 	@Test
-	public void NotaSinExamen() {
+	public void notaSinExamen() {
 		String[] args = { "P-6","P-4.99", "A-1","T-1"};
 		boolean test = Utilidades.robustez(args);
 		assertEquals(false, test);
 	}
 	@Test
-	public void NotaSinPractica() {
+	public void notaSinPractica() {
 		String[] args = { "C-9","C-4.99", "A-1","T-1"};
 		boolean test = Utilidades.robustez(args);
 		assertEquals(false, test);
 	}
 	@Test
-	public void NotaSinActitud() {
+	public void notaSinActitud() {
 		String[] args = { "P-8","C-5","P-4.99","T-1"};
 		boolean test = Utilidades.robustez(args);
 		assertEquals(false, test);
 	}
 	@Test
-	public void NotaSinAsistencia() {
+	public void notaSinAsistencia() {
 		String[] args = { "C-9","C-5","P-4.99", "A-1"};
 		boolean test = Utilidades.robustez(args);
 		assertEquals(false, test);
 	}
 	@Test
-	public void ErrorEnCalculadora() {
+	public void errorEnCalculadora() {
 		String[] args = { "C-99","C-5","P-4.99", "A-1"};
 		String test = Calculadora.calculadora(args);
 		assertEquals("", test);
