@@ -6,6 +6,7 @@ public class App {
 
 		if (!Utilidades.comprobarRobustez(args)) {
 			return;
+			
 		}
 		String[] imagen = ImagenFil.conversorArray(args);
 		if (imagen == null) {
