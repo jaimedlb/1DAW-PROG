@@ -17,19 +17,21 @@ import java.util.regex.Pattern;
 
 public class Utilidades {
 
-	public static void conexion(String[] parametros) {
+	public static Connection conexion(String[] parametros) {
 		String ip = parametros[0];
 		String contenedor = parametros[1];
 		String usuario = parametros[2];
 		String contrasena = parametros[3];
 		String connectionString = "jdbc:oracle:thin:@//" + ip + "/" + contenedor;
+		Connection conn =null;
 		try {
-			Connection conn = DriverManager.getConnection(connectionString, usuario, contrasena);
-			jdbcDemo(conn);
+			 conn = DriverManager.getConnection(connectionString, usuario, contrasena);
 		} catch (SQLException e) {
 			System.err.println("Parametros incorrectos: " + e.getMessage());
+			return null;
 		}
 		System.out.println("INFO: conectado a BBDD.");
+		return conn;
 	}
 
 	private static void jdbcDemo(Connection conn) throws SQLException {
@@ -41,7 +43,7 @@ public class Utilidades {
 		}
 		resultSet.close();
 		stmt.close();
-		conn.close();
+		
 	}
 
 	private static String[] parseLogLineString(String line) {

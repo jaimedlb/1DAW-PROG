@@ -1,6 +1,9 @@
 package com.gsd.daw.prog.ApacheLogLoader;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ApacheLogLoader {
@@ -12,7 +15,7 @@ public class ApacheLogLoader {
 		}
 
 		// Creacion de la conexión
-		Utilidades.conexion(args);
+		Connection conexion= Utilidades.conexion(args);
 
 		// Lectura de datos a estructuras planas
 		// Esto sin colecciones será un String[][] array de tamaño máximo 10000
@@ -32,11 +35,24 @@ public class ApacheLogLoader {
 		}
 
 		 System.out.println("INFO: creados [" + objLog.size() + "] objetos del modelo.");
+		 
 
 		// Guardado de los objetos del modelo en BBDD
 		// La clase del modelo debe tener un método save( Connection ) que recibe una
 		// conexion JDBC y hace que los datos del objeto se guarden en BBDD
+		 int i;
+			for (i = 0; i < objLog.size(); i++) {
+				Log l1= objLog.get(i);
+				try {
+					
+					l1.save(conexion);
+				} catch (SQLException e) {
+					System.err.println(e.getMessage());
+				}
+			}
+			
+		
 
-		// System.out.println("INFO: insertadas [" + i + "] filas en BBDD.");
+		 System.out.println("INFO: insertadas [" + i + "] filas en BBDD.");
 	}
 }
