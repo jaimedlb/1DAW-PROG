@@ -33,19 +33,7 @@ public class Utilidades {
 		System.out.println("INFO: conectado a BBDD.");
 		return conn;
 	}
-
-	private static void jdbcDemo(Connection conn) throws SQLException {
-		Statement stmt = conn.createStatement();
-		ResultSet resultSet = stmt.executeQuery("SELECT * FROM APACHE_LOG_TBL");
-		while (resultSet.next()) {
-			System.out.print("Nombre: " + resultSet.getString("ip"));
-			System.out.print(" Email: " + resultSet.getString("TIMESTAMP") + "\n");
-		}
-		resultSet.close();
-		stmt.close();
-		
-	}
-
+	
 	private static String[] parseLogLineString(String line) {
 		String LOG_ENTRY_PATTERN = "^(\\S+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+\\-]\\d{4})\\] \"(.+?)\" (\\d{3}) (\\S+) \"(.*?)\" \"(.*?)\"$";
 		Pattern pattern = Pattern.compile(LOG_ENTRY_PATTERN);
