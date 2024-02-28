@@ -2,11 +2,15 @@ package com.gsd.daw.prog.ApacheLogLoader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -57,25 +61,31 @@ public class Utilidades {
 		}
 		return res;
 	}
-	public static String[][] estructuraLog(String fichero){
+
+	public static List<String[]> estructuraLog(String fichero) {
 		Scanner inputFile = null;
 		try {
 			File f = new File(fichero);
-			inputFile = new Scanner( f );
+			inputFile = new Scanner(f);
 
 		} catch (FileNotFoundException e) {
 			System.err.println("ERROR: no se encuantra el fichero [" + fichero + "]");
 			return null;
 		}
-		String[][] valores=new String[10000][6];
-		for (int j = 0; inputFile.hasNext(); j++) {
-		
-			 String[] valor= parseLogLineString(inputFile.nextLine());
-			for (int i = 0; i < valor.length; i++) {
-				valores[j][i]= valor[i];
-			}
+		List<String[]> l1 = new ArrayList<>();
+		while (inputFile.hasNext()) {
+			String[] valor = parseLogLineString(inputFile.nextLine());
+			l1.add(valor);
+
 		}
-		
-		return valores;
+		/*
+		 * String[][] valores=new String[10000][6]; for (int j = 0; inputFile.hasNext();
+		 * j++) {
+		 * 
+		 * String[] valor= parseLogLineString(inputFile.nextLine()); for (int i = 0; i <
+		 * valor.length; i++) { valores[j][i]= valor[i]; } }
+		 */
+
+		return l1;
 	}
 }

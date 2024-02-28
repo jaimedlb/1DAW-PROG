@@ -1,5 +1,7 @@
 package com.gsd.daw.prog.ApacheLogLoader;
 
+import java.util.List;
+
 public class ApacheLogLoader {
 	public static void main(String[] args) {
 		// Comprobación de argumentos
@@ -19,9 +21,8 @@ public class ApacheLogLoader {
 		// Crea una clase aparte cuya responsabilidad sea recibir un nombre de fichero
 		// y devolver una estructura String[10000][6] con los datos en columnas
 		
-String[][] valores=Utilidades.estructuraLog(args[4]);
-		
-	System.out.println("INFO: leidas [" + vañp + "] lineas del fichero.");
+List<String[]> valores=Utilidades.estructuraLog(args[4]);
+			System.out.println("INFO: leidas [" + valores.size() + "] lineas del fichero.");
 
 		// Conversion de estructuras planas a objetos del modelo
 		// Crea una clase que modele los datos que tiene una linea de log de Apache
