@@ -7,14 +7,14 @@ private String request;
 private String result;
 private String bytes;
 private String ua;
-public Log(String ip, String timeStamp, String request, String result, String bytes, String ua) {
+public Log(String[] log) {
 	super();
-	this.ip = ip;
-	this.timeStamp = timeStamp;
-	this.request = request;
-	this.result = result;
-	this.bytes = bytes;
-	this.ua = ua;
+	this.ip = log[0];
+	this.timeStamp = log[1];
+	this.request = log[2];
+	this.result = log[3];
+	this.bytes = log[4];
+	this.ua = log[5];
 }
 
 
