@@ -3,14 +3,13 @@ package com.gsd.daw.prog.ApacheLogLoader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Log {
 	private String ip;
 	private String timeStamp;
 	private String request;
 	private String result;
-	private String bytes;
+	private int bytes;
 	private String ua;
 
 	public Log(String[] log) {
@@ -19,7 +18,7 @@ public class Log {
 		this.timeStamp = log[1];
 		this.request = log[2];
 		this.result = log[3];
-		this.bytes = log[4];
+		this.bytes = Integer.parseInt(log[4]);
 		this.ua = log[5];
 	}
 
@@ -30,7 +29,7 @@ public class Log {
 		preparedStmt.setString(2, timeStamp);
 		preparedStmt.setString(3, request);
 		preparedStmt.setString(4, result);
-		preparedStmt.setString(5, bytes);
+		preparedStmt.setInt(5, bytes);
 		preparedStmt.setString(6, ua);
 		preparedStmt.execute();
 		preparedStmt.close();
