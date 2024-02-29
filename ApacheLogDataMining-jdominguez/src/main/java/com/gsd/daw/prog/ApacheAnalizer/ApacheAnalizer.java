@@ -54,7 +54,7 @@ public class ApacheAnalizer {
 	    // Puede ser una librería de funciones static (sin datos propios)
 	    // que reciban un array de objetos del modelo y realicen cálculos sobre ellos
 	    // Recuerda dividir responsabilidades entre calcular e imprimir.
-
+Calculos.numeroIps(objLog);
 	    // Los cálculos que se piden están especificados en el enunciado
 	}
 }
