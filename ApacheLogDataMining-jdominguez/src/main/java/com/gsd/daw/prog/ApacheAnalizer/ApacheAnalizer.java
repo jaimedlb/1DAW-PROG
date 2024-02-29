@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gsd.daw.prog.ApacheLogLoader.Log;
 import com.gsd.daw.prog.ApacheLogLoader.Utilidades;
 
 import oracle.jdbc.oracore.Util;
@@ -36,13 +37,17 @@ public class ApacheAnalizer {
 			System.err.println(e.getMessage());
 		}
 
-//	    System.out.println( "INFO: leidas [" + ponTuVariableAqui + "] lineas de BBDD." );
+  System.out.println( "INFO: leidas [" + valores.size() + "] lineas de BBDD." );
 
 	    // Conversion de estructuras planas a objetos del modelo
 	    // Reusa la clase que ya creaste para convertir la estructura "anónima"
 	    // en un array de objetos del modelo
+  List<Log> objLog = new ArrayList<>();
+	for (int i = 0; i < valores.size(); i++) {
+		objLog.add(new Log(valores.get(i)));
+	}
 
-	  //  System.out.println( "INFO: creados [" + ponTuVariableAqui + "] objetos del modelo." );
+	    System.out.println( "INFO: creados [" + objLog.size() + "] objetos del modelo." );
 
 	    // Crea una clase separada para realizar cálculos y analisis sobre
 	    // el array de objetos del modelo
