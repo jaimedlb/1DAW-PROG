@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,7 +35,7 @@ public class Utilidades {
 		PreparedStatement preparedStmt = conexion.prepareStatement(sql);
 		
 		ResultSet resultadoStmt= preparedStmt.executeQuery();
-		
+		List<String[]> valores=new ArrayList<>();
 		while (resultadoStmt.next()) {
 			
 		String ip =resultadoStmt.getString("IP");
@@ -44,10 +45,10 @@ public class Utilidades {
 		String bytes =resultadoStmt.getString("BYTES");
 		String ua =resultadoStmt.getString("UA");
 		String[] query={ip,timestamp,request,result,bytes,ua};
-		
+		valores.add(query);
 		}
 		preparedStmt.close();
 		
-		return null;
+		return valores;
 	}
 }
