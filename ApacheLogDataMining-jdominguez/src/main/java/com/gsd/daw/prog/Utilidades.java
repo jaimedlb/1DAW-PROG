@@ -1,39 +1,20 @@
-package com.gsd.daw.prog.ApacheLogLoader;
+package com.gsd.daw.prog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Utilidades {
 
-	public static Connection conexion(String[] parametros) {
-		String ip = parametros[0];
-		String contenedor = parametros[1];
-		String usuario = parametros[2];
-		String contrasena = parametros[3];
-		String connectionString = "jdbc:oracle:thin:@//" + ip + "/" + contenedor;
-		Connection conn =null;
-		try {
-			 conn = DriverManager.getConnection(connectionString, usuario, contrasena);
-		} catch (SQLException e) {
-			System.err.println("Parametros incorrectos: " + e.getMessage());
-			return null;
-		}
-	
-		return conn;
-	}
-	
+public class Utilidades {
 	private static String[] parseLogLineString(String line) {
 		String LOG_ENTRY_PATTERN = "^(\\S+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+\\-]\\d{4})\\] \"(.+?)\" (\\d{3}) (\\S+) \"(.*?)\" \"(.*?)\"$";
 		Pattern pattern = Pattern.compile(LOG_ENTRY_PATTERN);
@@ -51,7 +32,46 @@ public class Utilidades {
 		}
 		return res;
 	}
+	public static Connection conexion(String[] parametros) {
+		String ip = parametros[0];
+		String contenedor = parametros[1];
+		String usuario = parametros[2];
+		String contrasena = parametros[3];
+		String connectionString = "jdbc:oracle:thin:@//" + ip + "/" + contenedor;
+		Connection conn =null;
+		try {
+			 conn = DriverManager.getConnection(connectionString, usuario, contrasena);
+		} catch (SQLException e) {
+			System.err.println("Parametros incorrectos: " + e.getMessage());
+			return null;
+		}
+		
+		return conn;
+	}
+	
 
+	public static List<String[]> estructurarSelect(Connection conexion)throws SQLException{
+		
+		String sql = "select * from APACHE_LOG_TBL";
+		PreparedStatement preparedStmt = conexion.prepareStatement(sql);
+		
+		ResultSet resultadoStmt= preparedStmt.executeQuery();
+		List<String[]> valores=new ArrayList<>();
+		while (resultadoStmt.next()) {
+			
+		String ip =resultadoStmt.getString("IP");
+		String timestamp =resultadoStmt.getString("TIMESTAMP");
+		String request =resultadoStmt.getString("REQUEST");
+		String result =resultadoStmt.getString("RESULT");
+		String bytes =resultadoStmt.getString("BYTES");
+		String ua =resultadoStmt.getString("UA");
+		String[] query={ip,timestamp,request,result,bytes,ua};
+		valores.add(query);
+		}
+		preparedStmt.close();
+		
+		return valores;
+	}
 	public static List<String[]> estructurarLog(String fichero) {
 		Scanner inputFile = null;
 		try {

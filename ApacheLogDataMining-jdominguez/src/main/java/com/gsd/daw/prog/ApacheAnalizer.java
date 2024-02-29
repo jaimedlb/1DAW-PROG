@@ -1,11 +1,8 @@
-package com.gsd.daw.prog.ApacheAnalizer;
+package com.gsd.daw.prog;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.gsd.daw.prog.ApacheLogLoader.Log;
-import com.gsd.daw.prog.ApacheLogLoader.Utilidades;
 
 import oracle.jdbc.oracore.Util;
 
@@ -32,7 +29,7 @@ public class ApacheAnalizer {
 	    List<String[]> valores=null;
 	    try {
 			
-	    	valores=com.gsd.daw.prog.ApacheAnalizer.Utilidades.estructurarLog(conexion);
+	    	valores=com.gsd.daw.prog.Utilidades.estructurarSelect(conexion);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}

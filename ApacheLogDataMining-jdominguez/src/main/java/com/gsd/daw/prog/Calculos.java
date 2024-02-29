@@ -1,4 +1,4 @@
-package com.gsd.daw.prog.ApacheAnalizer;
+package com.gsd.daw.prog;
 
 import java.util.HashMap;
 import java.util.List;

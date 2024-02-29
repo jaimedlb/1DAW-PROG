@@ -1,4 +1,4 @@
-package com.gsd.daw.prog.ApacheLogLoader;
+package com.gsd.daw.prog;
 
 import java.sql.Connection;
 import java.sql.SQLException;
