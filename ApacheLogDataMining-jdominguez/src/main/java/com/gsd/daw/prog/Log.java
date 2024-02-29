@@ -12,8 +12,7 @@ public class Log {
 	private int bytes;
 	private String ua;
 
-	public Log(String[] log) {
-		super();
+	public Log(String[] log){
 		this.ip = log[0];
 		this.timeStamp = log[1];
 		this.request = log[2];
