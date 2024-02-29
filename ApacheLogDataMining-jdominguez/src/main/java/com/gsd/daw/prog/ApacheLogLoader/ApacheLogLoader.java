@@ -16,6 +16,10 @@ public class ApacheLogLoader {
 
 		// Creacion de la conexión
 		Connection conexion= Utilidades.conexion(args);
+		if(conexion==null) {
+			return;
+		}
+		System.out.println("INFO: conectado a BBDD.");
 
 		// Lectura de datos a estructuras planas
 		// Esto sin colecciones será un String[][] array de tamaño máximo 10000
@@ -23,7 +27,7 @@ public class ApacheLogLoader {
 		// Crea una clase aparte cuya responsabilidad sea recibir un nombre de fichero
 		// y devolver una estructura String[10000][6] con los datos en columnas
 
-		List<String[]> valores = Utilidades.estructuraLog(args[4]);
+		List<String[]> valores = Utilidades.estructurarLog(args[4]);
 		System.out.println("INFO: leidas [" + valores.size() + "] lineas del fichero.");
 		
 		// Conversion de estructuras planas a objetos del modelo

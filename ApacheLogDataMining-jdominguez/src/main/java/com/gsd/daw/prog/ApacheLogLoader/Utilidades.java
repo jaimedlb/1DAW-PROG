@@ -30,7 +30,7 @@ public class Utilidades {
 			System.err.println("Parametros incorrectos: " + e.getMessage());
 			return null;
 		}
-		System.out.println("INFO: conectado a BBDD.");
+	
 		return conn;
 	}
 	
@@ -52,7 +52,7 @@ public class Utilidades {
 		return res;
 	}
 
-	public static List<String[]> estructuraLog(String fichero) {
+	public static List<String[]> estructurarLog(String fichero) {
 		Scanner inputFile = null;
 		try {
 			File f = new File(fichero);
