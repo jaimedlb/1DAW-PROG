@@ -45,13 +45,14 @@ public class ApacheAnalizer {
 	}
 
 	    System.out.println( "INFO: creados [" + objLog.size() + "] objetos del modelo." );
-
+	    
 	    // Crea una clase separada para realizar cálculos y analisis sobre
 	    // el array de objetos del modelo
 	    // Puede ser una librería de funciones static (sin datos propios)
 	    // que reciban un array de objetos del modelo y realicen cálculos sobre ellos
 	    // Recuerda dividir responsabilidades entre calcular e imprimir.
-Calculos.numeroIps(objLog);
+Calculos.imprimir(Calculos.numeroIps(objLog));
+Calculos.imprimir(Calculos.numeroStatusCode(objLog));
 	    // Los cálculos que se piden están especificados en el enunciado
 	}
 }

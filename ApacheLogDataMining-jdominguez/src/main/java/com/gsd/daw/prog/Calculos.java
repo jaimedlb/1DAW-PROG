@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Calculos {
-	public static void numeroIps(List<Log> objs) {
+	public static Map<String, Integer> numeroIps(List<Log> objs) {
 		Map<String, Integer> m1 = new HashMap<>();
 		for (int i = 0; i < objs.size(); i++) {
 
@@ -16,16 +16,30 @@ public class Calculos {
 				m1.put(objs.get(i).getIp(), 1);
 			}
 		}
-		imprimirIp(m1);
+return m1;
+		
+	}
+	public static Map<String, Integer> numeroStatusCode(List<Log> objs) {
+		Map<String, Integer> m1 = new HashMap<>();
+		for (int i = 0; i < objs.size(); i++) {
+
+			if (m1.containsKey(objs.get(i).getResult())) {
+				m1.replace(objs.get(i).getResult(), m1.get(objs.get(i).getResult()) + 1);
+			}
+			else {
+				m1.put(objs.get(i).getResult(), 1);
+			}
+		}
+		return m1;
 	}
 
-	private static void imprimirIp(Map<String, Integer> m1) {
+	public static void imprimir(Map<String, Integer> m1) {
 
 m1.forEach((String, Integer)->{
 	Integer cant=Integer;
-	String ip = String;
+	String valor = String;
 	if (cant>=10) {
-		System.out.println(ip+": "+cant);	}
+		System.out.println(valor+": "+cant);	}
 	
 });
 		
