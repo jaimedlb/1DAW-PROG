@@ -3,6 +3,7 @@ package com.gsd.daw.prog;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 public class Log {
 	private String ip;
@@ -12,7 +13,7 @@ public class Log {
 	private int bytes;
 	private String ua;
 
-	public Log(String[] log){
+	public Log(String[] log) throws ParseException{
 		this.ip = log[0];
 		this.timeStamp = log[1];
 		this.request = log[2];

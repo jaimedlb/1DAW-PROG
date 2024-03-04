@@ -88,14 +88,7 @@ public class Utilidades {
 			l1.add(valor);
 
 		}
-		/*
-		 * String[][] valores=new String[10000][6]; for (int j = 0; inputFile.hasNext();
-		 * j++) {
-		 * 
-		 * String[] valor= parseLogLineString(inputFile.nextLine()); for (int i = 0; i <
-		 * valor.length; i++) { valores[j][i]= valor[i]; } }
-		 */
-
+		inputFile.close();
 		return l1;
 	}
 }

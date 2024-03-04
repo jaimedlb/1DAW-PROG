@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import oracle.jdbc.oracore.Util;
-
 public class ApacheAnalizer {
 	public static void main( String[] args ) {
 	    // Comprobación de argumentos
@@ -41,7 +39,12 @@ public class ApacheAnalizer {
 	    // en un array de objetos del modelo
   List<Log> objLog = new ArrayList<>();
 	for (int i = 0; i < valores.size(); i++) {
-		objLog.add(new Log(valores.get(i)));
+		try {
+			
+			objLog.add(new Log(valores.get(i)));
+		} catch (Exception e) {
+			System.err.println("problema en la base de datos"+e.getMessage());
+		}
 	}
 
 	    System.out.println( "INFO: creados [" + objLog.size() + "] objetos del modelo." );
@@ -51,8 +54,12 @@ public class ApacheAnalizer {
 	    // Puede ser una librería de funciones static (sin datos propios)
 	    // que reciban un array de objetos del modelo y realicen cálculos sobre ellos
 	    // Recuerda dividir responsabilidades entre calcular e imprimir.
-Calculos.imprimir(Calculos.numeroIps(objLog));
-Calculos.imprimir(Calculos.numeroStatusCode(objLog));
+	    System.out.println("Ips que aparecen mas de 10 veces");
+Calculos.imprimirIps(Calculos.calcularnumeroIpsMayorDiez(objLog));
+System.out.println("Cuantas veces aparecen cada status code");
+Calculos.imprimirResult(Calculos.numeroStatusCode(objLog));
+System.out.println("veces que se hacen request en cada hora");
+Calculos.imprimirHoras(Calculos.numeroDeHoras(objLog));
 	    // Los cálculos que se piden están especificados en el enunciado
 	}
 }

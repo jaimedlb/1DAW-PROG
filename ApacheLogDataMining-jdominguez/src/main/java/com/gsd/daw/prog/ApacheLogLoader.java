@@ -3,7 +3,6 @@ package com.gsd.daw.prog;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class ApacheLogLoader {
@@ -28,6 +27,9 @@ public class ApacheLogLoader {
 		// y devolver una estructura String[10000][6] con los datos en columnas
 
 		List<String[]> valores = Utilidades.estructurarLog(args[4]);
+		if(valores==null) {
+			return;
+		}
 		System.out.println("INFO: leidas [" + valores.size() + "] lineas del fichero.");
 		
 		// Conversion de estructuras planas a objetos del modelo
@@ -35,7 +37,11 @@ public class ApacheLogLoader {
 		// Convierte la estructura "anónima" en un array de objetos del modelo
 		List<Log> objLog = new ArrayList<>();
 		for (int i = 0; i < valores.size(); i++) {
-			objLog.add(new Log(valores.get(i)));
+			try {
+				objLog.add(new Log(valores.get(i)));				
+			} catch (Exception e) {
+				System.err.println("problema en el fichero"+e.getMessage());
+			}
 		}
 
 		 System.out.println("INFO: creados [" + objLog.size() + "] objetos del modelo.");
