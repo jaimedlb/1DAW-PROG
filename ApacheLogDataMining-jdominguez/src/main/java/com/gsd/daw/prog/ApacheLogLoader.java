@@ -8,7 +8,7 @@ import java.util.List;
 public class ApacheLogLoader {
 	public static void main(String[] args) {
 		// Comprobación de argumentos
-		if (args.length != 5) {
+		if (args.length != 6) {
 			System.err.println("Para que el programa funcione se necesitan 5 parametros");
 			return;
 		}

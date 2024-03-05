@@ -47,12 +47,11 @@ public class Calculos {
 	public static Map<String, Integer> numeroBytesMes(List<Log> objs)throws IndexOutOfBoundsException {
 		Map<String, Integer> m1 = new HashMap<>();
 		for (int i = 0; i < objs.size(); i++) {
-			String[] valores= objs.get(i).getTimeStamp().split("\\/");
-			if(valores[1].equals(objs))
-			if (m1.containsKey(valores[1])) {
-				m1.replace(valores[1], m1.get(valores[1]) + 1);
+			String[] valores= objs.get(i).getTimeStamp().split("\\/|\\:");
+			if (m1.containsKey(valores[1]+" "+valores[2])) {
+				m1.replace(valores[1]+" "+valores[2], m1.get(valores[1]+" "+valores[2]) + objs.get(i).getBytes());
 			} else {
-				m1.put(valores[1], 1);
+				m1.put(valores[1]+" "+valores[2], objs.get(i).getBytes());
 			}
 		}
 		
@@ -85,12 +84,17 @@ public class Calculos {
 		m1.forEach((String, Integer) -> {
 			Integer cant = Integer;
 			String valor = String;
-			/*if ( java.lang.String.valueOf(valor.charAt(0)).equals("0")) {
-				System.out.println(valor + " AM : " + cant);
-			}else {
-				System.out.println(valor + " PM : " + cant);
-			}*/
 			System.out.println( java.lang.Integer.parseInt(valor)+ " H: " + cant);
+
+		});
+
+	}
+	public static void imprimirBytesMensuales(Map<String, Integer> m1) {
+
+		m1.forEach((String, Integer) -> {
+			Integer cant = Integer;
+			String valor = String;
+			System.out.println( valor+ ": " + cant+" B");
 
 		});
 

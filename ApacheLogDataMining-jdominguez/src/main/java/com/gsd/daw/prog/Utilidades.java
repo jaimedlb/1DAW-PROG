@@ -38,6 +38,9 @@ public class Utilidades {
 		String usuario = parametros[2];
 		String contrasena = parametros[3];
 		String connectionString = "jdbc:oracle:thin:@//" + ip + "/" + contenedor;
+		if(parametros[5].equals("POSTGRESQL")) {
+			connectionString = "jdbc:postgresql://" + ip + "/" + contenedor;
+		}
 		Connection conn =null;
 		try {
 			 conn = DriverManager.getConnection(connectionString, usuario, contrasena);

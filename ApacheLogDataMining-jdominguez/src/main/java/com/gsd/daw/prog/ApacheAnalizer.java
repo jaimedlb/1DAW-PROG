@@ -60,6 +60,8 @@ System.out.println("Cuantas veces aparecen cada status code");
 Calculos.imprimirResult(Calculos.numeroStatusCode(objLog));
 System.out.println("veces que se hacen request en cada hora");
 Calculos.imprimirHoras(Calculos.numeroDeHoras(objLog));
+System.out.println("numero de bytes totales transferidos cada mes");
+Calculos.imprimirBytesMensuales(Calculos.numeroBytesMes(objLog));
 	    // Los cálculos que se piden están especificados en el enunciado
 	}
 }
