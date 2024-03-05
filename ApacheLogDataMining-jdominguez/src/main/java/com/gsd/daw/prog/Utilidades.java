@@ -13,7 +13,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class Utilidades {
 	private static String[] parseLogLineString(String line) {
 		String LOG_ENTRY_PATTERN = "^(\\S+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+\\-]\\d{4})\\] \"(.+?)\" (\\d{3}) (\\S+) \"(.*?)\" \"(.*?)\"$";
@@ -32,49 +31,56 @@ public class Utilidades {
 		}
 		return res;
 	}
+
 	public static Connection conexion(String[] parametros) {
 		String ip = parametros[0];
 		String contenedor = parametros[1];
 		String usuario = parametros[2];
 		String contrasena = parametros[3];
 		String connectionString = "jdbc:oracle:thin:@//" + ip + "/" + contenedor;
-		if(parametros[5].equals("MARIADB")) {
-			connectionString = "jdbc:mysql://127.0.0.1:3306/testdb?serverTimezone=UTC";
+		if (parametros.length == 6) {
+
+			if (parametros[5].equals("MARIADB")) {
+				System.out.println("Se asume MariaDB como base de datos");
+				connectionString = "jdbc:mysql://" + ip + ":3306/" + contenedor + "?serverTimezone=UTC&useSSL=false";
+			}else {				
+				System.out.println("Se asume Oracle como base de datos");
+			}
 		}
-		Connection conn =null;
+		Connection conn = null;
 		try {
-			 conn = DriverManager.getConnection(connectionString, usuario, contrasena);
+			conn = DriverManager.getConnection(connectionString, usuario, contrasena);
 		} catch (SQLException e) {
 			System.err.println("Parametros incorrectos: " + e.getMessage());
 			return null;
 		}
-		
+
 		return conn;
 	}
-	
 
-	public static List<String[]> estructurarSelect(Connection conexion)throws SQLException{
-		
+	public static List<String[]> estructurarSelect(Connection conexion) throws SQLException {
+
 		String sql = "select * from APACHE_LOG_TBL";
 		PreparedStatement preparedStmt = conexion.prepareStatement(sql);
-		
-		ResultSet resultadoStmt= preparedStmt.executeQuery();
-		List<String[]> valores=new ArrayList<>();
+
+		ResultSet resultadoStmt = preparedStmt.executeQuery();
+		List<String[]> valores = new ArrayList<>();
 		while (resultadoStmt.next()) {
-			
-		String ip =resultadoStmt.getString("IP");
-		String timestamp =resultadoStmt.getString("TIMESTAMP");
-		String request =resultadoStmt.getString("REQUEST");
-		String result =resultadoStmt.getString("RESULT");
-		String bytes =resultadoStmt.getString("BYTES");
-		String ua =resultadoStmt.getString("UA");
-		String[] query={ip,timestamp,request,result,bytes,ua};
-		valores.add(query);
+
+			String ip = resultadoStmt.getString("IP");
+			String timestamp = resultadoStmt.getString("TIMESTAMP");
+			String request = resultadoStmt.getString("REQUEST");
+			String result = resultadoStmt.getString("RESULT");
+			String bytes = resultadoStmt.getString("BYTES");
+			String ua = resultadoStmt.getString("UA");
+			String[] query = { ip, timestamp, request, result, bytes, ua };
+			valores.add(query);
 		}
 		preparedStmt.close();
-		
+
 		return valores;
 	}
+
 	public static List<String[]> estructurarLog(String fichero) {
 		Scanner inputFile = null;
 		try {
