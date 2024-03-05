@@ -38,8 +38,8 @@ public class Utilidades {
 		String usuario = parametros[2];
 		String contrasena = parametros[3];
 		String connectionString = "jdbc:oracle:thin:@//" + ip + "/" + contenedor;
-		if(parametros[5].equals("POSTGRESQL")) {
-			connectionString = "jdbc:postgresql://" + ip + "/" + contenedor;
+		if(parametros[5].equals("MARIADB")) {
+			connectionString = "jdbc:mysql://127.0.0.1:3306/testdb?serverTimezone=UTC";
 		}
 		Connection conn =null;
 		try {
