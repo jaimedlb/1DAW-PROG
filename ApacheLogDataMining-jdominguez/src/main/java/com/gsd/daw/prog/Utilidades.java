@@ -38,15 +38,14 @@ public class Utilidades {
 		String usuario = parametros[2];
 		String contrasena = parametros[3];
 		String connectionString = "jdbc:oracle:thin:@//" + ip + "/" + contenedor;
-		if (parametros.length == 6) {
-
-			if (parametros[5].equals("MARIADB")) {
-				System.out.println("Se asume MariaDB como base de datos");
-				connectionString = "jdbc:mysql://" + ip + ":3306/" + contenedor + "?serverTimezone=UTC&useSSL=false";
-			}else {				
-				System.out.println("Se asume Oracle como base de datos");
-			}
+		String variable = System.getenv("BBDD");
+		if ("MARIADB".equals(variable)) {
+			System.out.println("Se asume MariaDB como base de datos");
+			connectionString = "jdbc:mysql://" + ip + ":3307/" + contenedor + "?serverTimezone=UTC";
+		} else {
+			System.out.println("Se asume Oracle como base de datos");
 		}
+
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(connectionString, usuario, contrasena);
@@ -60,7 +59,7 @@ public class Utilidades {
 
 	public static List<String[]> estructurarSelect(Connection conexion) throws SQLException {
 
-		String sql = "select * from APACHE_LOG_TBL";
+		String sql = "select * from APACHE_LOG_TBL2";
 		PreparedStatement preparedStmt = conexion.prepareStatement(sql);
 
 		ResultSet resultadoStmt = preparedStmt.executeQuery();
@@ -99,5 +98,45 @@ public class Utilidades {
 		}
 		inputFile.close();
 		return l1;
+	}
+
+	public static String fechaNombreToNumero(String fecha) {
+		if (fecha.equals("Jan")) {
+			return "01";
+		}
+		if (fecha.equals("Feb")) {
+			return "02";
+		}
+		if (fecha.equals("Mar")) {
+			return "03";
+		}
+		if (fecha.equals("Apr")) {
+			return "04";
+		}
+		if (fecha.equals("May")) {
+			return "05";
+		}
+		if (fecha.equals("Jun")) {
+			return "06";
+		}
+		if (fecha.equals("Jul")) {
+			return "07";
+		}
+		if (fecha.equals("Aug")) {
+			return "08";
+		}
+		if (fecha.equals("Sep")) {
+			return "09";
+		}
+		if (fecha.equals("Oct")) {
+			return "10";
+		}
+		if (fecha.equals("Nov")) {
+			return "11";
+		}
+		if (fecha.equals("Dec")) {
+			return "12";
+		}
+		return "";
 	}
 }
