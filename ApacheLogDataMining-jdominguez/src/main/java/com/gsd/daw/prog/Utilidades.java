@@ -59,7 +59,7 @@ public class Utilidades {
 
 	public static List<String[]> estructurarSelect(Connection conexion) throws SQLException {
 
-		String sql = "select * from APACHE_LOG_TBL2";
+		String sql = "select * from APACHE_LOG_TBL";
 		PreparedStatement preparedStmt = conexion.prepareStatement(sql);
 
 		ResultSet resultadoStmt = preparedStmt.executeQuery();
