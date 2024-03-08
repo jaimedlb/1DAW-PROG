@@ -67,7 +67,7 @@ public class Calculos {
 			}
 
 		});
-
+		System.out.println();
 	}
 	public static void imprimirResult(Map<String, Integer> m1) {
 
@@ -77,7 +77,7 @@ public class Calculos {
 			System.out.println(valor + ": " + cant);
 
 		});
-
+		System.out.println();
 	}
 	public static void imprimirHoras(Map<String, Integer> m1) {
 
@@ -87,7 +87,7 @@ public class Calculos {
 			System.out.println( java.lang.Integer.parseInt(valor)+ " H: " + cant);
 
 		});
-
+		System.out.println();
 	}
 	public static void imprimirBytesMensuales(Map<String, Integer> m1) {
 
@@ -97,7 +97,7 @@ public class Calculos {
 			System.out.println( valor+ ": " + cant+" B");
 
 		});
-
+System.out.println();
 	}
 
 }
