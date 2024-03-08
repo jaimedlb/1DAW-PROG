@@ -30,9 +30,12 @@ private boolean comprobacionPrimaryKey(Connection conexion)throws SQLException {
 	preparedStmt.setInt(1, hash);
 	ResultSet resultadoStmt = preparedStmt.executeQuery();
 	resultadoStmt.next();
-	String HASH = resultadoStmt.getString("HASH");
+	String hash = resultadoStmt.getString("HASH");
+	if(this.hash==Integer.parseInt(hash)) {
+		return false;
+	}
 	preparedStmt.close();
-	return false;
+	return true;
 }
 	public void save(Connection conexion) throws SQLException {
 		String sql = "INSERT INTO APACHE_LOG_TBL VALUES (?,?,?,?,?,?,?)";
