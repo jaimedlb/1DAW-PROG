@@ -2,6 +2,7 @@ package com.gsd.daw.prog;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 
@@ -23,9 +24,19 @@ public class Log {
 		this.ua = log[5];
 		this.hash=(ip+timeStamp+request+result+bytes+ua).hashCode();
 	}
-
+private boolean comprobacionPrimaryKey(Connection conexion)throws SQLException {
+	String sql = "select HASH from APACHE_LOG_TBL where HASH=?";
+	PreparedStatement preparedStmt = conexion.prepareStatement(sql);
+	preparedStmt.setInt(1, hash);
+	ResultSet resultadoStmt = preparedStmt.executeQuery();
+	resultadoStmt.next();
+	String HASH = resultadoStmt.getString("HASH");
+	preparedStmt.close();
+	return false;
+}
 	public void save(Connection conexion) throws SQLException {
 		String sql = "INSERT INTO APACHE_LOG_TBL VALUES (?,?,?,?,?,?,?)";
+		comprobacionPrimaryKey(conexion);
 		PreparedStatement preparedStmt = conexion.prepareStatement(sql);
 		preparedStmt.setInt(1, hash);
 		preparedStmt.setString(2, ip);
