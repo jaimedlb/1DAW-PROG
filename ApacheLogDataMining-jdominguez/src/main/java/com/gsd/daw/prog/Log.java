@@ -39,6 +39,7 @@ public class Log {
 		String hash = resultadoStmt.getString("HASH");
 
 		if (this.hash == Integer.parseInt(hash)) {
+			preparedStmt.close();
 			return false;
 		}
 		preparedStmt.close();
