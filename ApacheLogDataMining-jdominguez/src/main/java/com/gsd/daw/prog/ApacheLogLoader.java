@@ -51,18 +51,22 @@ public class ApacheLogLoader {
 		// La clase del modelo debe tener un método save( Connection ) que recibe una
 		// conexion JDBC y hace que los datos del objeto se guarden en BBDD
 		 int i;
+		 int contador=0;
 			for (i = 0; i < objLog.size(); i++) {
 				Log l1= objLog.get(i);
 				try {
 					
-					l1.save(conexion);
+					if(l1.save(conexion)) {
+						contador++;
+					}
 				} catch (SQLException e) {
 					System.err.println(e.getMessage());
 				}
+				
 			}
 			
 		
 
-		 System.out.println("INFO: insertadas [" + i + "] filas en BBDD.");
+		 System.out.println("INFO: insertadas [" + contador + "] filas en BBDD.");
 	}
 }

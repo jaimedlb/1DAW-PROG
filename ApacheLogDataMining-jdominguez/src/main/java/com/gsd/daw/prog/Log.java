@@ -45,9 +45,9 @@ public class Log {
 		return true;
 	}
 
-	public void save(Connection conexion) throws SQLException {
+	public boolean save(Connection conexion) throws SQLException {
 		if (!comprobacionPrimaryKey(conexion)) {
-			return;
+			return false;
 		}
 		String sql = "INSERT INTO APACHE_LOG_TBL VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement preparedStmt = conexion.prepareStatement(sql);
@@ -60,6 +60,7 @@ public class Log {
 		preparedStmt.setString(7, ua);
 		preparedStmt.execute();
 		preparedStmt.close();
+		return true;
 	}
 	/*
 	 * private Date convertirTimeStampToDate() {
