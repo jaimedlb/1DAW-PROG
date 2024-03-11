@@ -64,13 +64,10 @@ public class Log {
 		return true;
 	}
 	/*
-	 * private Date convertirTimeStampToDate() {
-	 * Date hola= new Date();
-	 * String[] date= timeStamp.split("\\/|\\:");
-	 * return
+	 * private Date convertirTimeStampToDate() { Date hola= new Date(); String[]
+	 * date= timeStamp.split("\\/|\\:"); return
 	 * date[0]+"/"+Utilidades.fechaNombreToNumero(date[1])+"/"+date[2]+" "+date[3]+
-	 * ":"+date[4]+":"+date[5];
-	 * }
+	 * ":"+date[4]+":"+date[5]; }
 	 */
 
 	public String getIp() {
