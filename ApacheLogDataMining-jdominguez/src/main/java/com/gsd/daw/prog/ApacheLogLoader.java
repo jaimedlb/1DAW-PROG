@@ -40,7 +40,7 @@ public class ApacheLogLoader {
 			try {
 				objLog.add(new Log(valores.get(i)));
 			} catch (Exception e) {
-				System.err.println("problema en el fichero" + e.getMessage());
+				
 			}
 		}
 
