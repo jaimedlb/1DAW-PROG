@@ -32,6 +32,7 @@ public class Log {
 		ResultSet resultadoStmt = preparedStmt.executeQuery();
 		if (!resultadoStmt.next()) {
 			preparedStmt.close();
+			resultadoStmt.close();
 			return true;
 
 		}
@@ -40,9 +41,11 @@ public class Log {
 
 		if (this.hash == Integer.parseInt(hash)) {
 			preparedStmt.close();
+			resultadoStmt.close();
 			return false;
 		}
 		preparedStmt.close();
+		resultadoStmt.close();
 		return true;
 	}
 
