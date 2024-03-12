@@ -63,12 +63,10 @@ public class ApacheLogLoader {
 			}
 
 		}
-		if(conexion!=null) {
 			try {
 				conexion.close();				
 			} catch (Exception e) {
 			}
-		}
 		System.out.println("INFO: insertadas [" + contador + "] filas en BBDD.");
 	}
 }
