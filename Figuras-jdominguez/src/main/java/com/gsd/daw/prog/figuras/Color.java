@@ -17,11 +17,11 @@ public class Color {
 	}
 
 	public String toSvg() {
-		StringBuilder sb=new StringBuilder();
-		
-		sb.append("stroke=","\"","(",red,",",green,",",blue,")\"");
-		sb.a
-		return stroke="rgb(248,235,216)";
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("stroke=\"(").append(red).append(",").append(green).append(",").append(blue).append(")\"");
+
+		return sb.toString();
 	}
 
 }
