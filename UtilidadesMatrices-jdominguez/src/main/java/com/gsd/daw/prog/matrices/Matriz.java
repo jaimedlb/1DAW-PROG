@@ -65,7 +65,7 @@ public class Matriz {
 		return maximoValor;
 	}
 
-	public static int[] getPosicioMaximoElemento(int[][] m) {
+	public static int[] getPosicionMaximoElemento(int[][] m) {
 		if (!isMatrizValida(m))
 			return null;
 		int maximoValor = Integer.MIN_VALUE;
