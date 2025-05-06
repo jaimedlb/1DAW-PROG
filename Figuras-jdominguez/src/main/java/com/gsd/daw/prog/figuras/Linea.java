@@ -5,8 +5,9 @@ private Punto punto1;
 private Punto punto2;
 private Stroke stroke;
 public Linea(Punto punto1, Punto punto2) {	
-	if(punto1==null||punto2==null)
+	if(punto1==null||punto2==null) {
 		throw new IllegalAccessError();
+	}
 	
 	this.punto1=punto1;
 	this.punto2=punto2;
@@ -14,8 +15,9 @@ public Linea(Punto punto1, Punto punto2) {
 }
 
 public void setStroke(Stroke stroke) {
-	if (stroke == null)
+	if (stroke == null) {
 		throw new IllegalArgumentException();
+	}
 	this.stroke=stroke;
 }
 

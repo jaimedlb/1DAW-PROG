@@ -7,8 +7,9 @@ public class Rectangulo {
 	private Stroke stroke;
 
 	public Rectangulo(Punto origen, Integer ancho, Integer alto) {
-		if (origen == null || ancho == null || alto == null)
+		if (origen == null || ancho == null || alto == null) {
 			throw new IllegalArgumentException();
+		}
 
 		this.origen = origen;
 		this.ancho = ancho;
@@ -17,8 +18,9 @@ public class Rectangulo {
 	}
 
 	public void setStroke(Stroke stroke) {
-		if (stroke == null)
+		if (stroke == null) {
 			throw new IllegalArgumentException();
+		}
 		this.stroke = stroke;
 	}
 

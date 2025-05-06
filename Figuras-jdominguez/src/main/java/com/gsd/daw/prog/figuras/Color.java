@@ -8,8 +8,9 @@ public class Color {
 
 	public Color(Byte red, Byte green, Byte blue) {
 
-		if (red == null || green == null || blue == null)
+		if (red == null || green == null || blue == null) {
 			throw new IllegalArgumentException();
+		}
 		this.red = red & 0xFF;
 		this.green = green & 0xFF;
 		this.blue = blue & 0xFF;

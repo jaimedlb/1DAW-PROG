@@ -5,8 +5,9 @@ public class Circulo {
 	private Integer radio;
 	private Stroke stroke;
 	public Circulo(Punto centro, Integer radio) {
-		if (centro == null || radio == null)
+		if (centro == null || radio == null) {
 			throw new IllegalArgumentException();
+		}
 
 		this.centro = centro;
 		this.radio = radio;
@@ -15,8 +16,9 @@ public class Circulo {
 
 	}
 	public void setStroke(Stroke stroke) {
-		if (stroke == null)
+		if (stroke == null) {
 			throw new IllegalArgumentException();
+		}
 		this.stroke=stroke;
 	}
 

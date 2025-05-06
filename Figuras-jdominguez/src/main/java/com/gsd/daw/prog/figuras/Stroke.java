@@ -6,8 +6,9 @@ public class Stroke {
 	private Integer width;
 
 	public Stroke(Color color, Integer width) {
-		if (color == null || width == null)
+		if (color == null || width == null) {
 			throw new IllegalArgumentException();
+		}
 
 		this.color = color;
 		this.width = width;
