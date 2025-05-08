@@ -12,66 +12,84 @@ public class Contenedor {
 	private Rectangulo rectangulo;
 
 	public Contenedor(Integer ancho, Integer alto) {
-		if (ancho == null || alto == null)
+		if (ancho == null || alto == null) {
 			throw new IllegalArgumentException();
+		}
 		this.ancho=ancho;
 		this.alto=alto;
 	}
 
 	public void addCirculo(Circulo figura) {
-		if (figura == null)
+		if (figura == null) {
 			throw new IllegalArgumentException();
+		}
 		circulo = figura;
 	}
 
 	public void addElipse(Elipse figura) {
-		if (figura == null)
+		if (figura == null) {
 			throw new IllegalArgumentException();
+		}
 		elipse = figura;
 	}
 
 	public void addLinea(Linea figura) {
-		if (figura == null)
+		if (figura == null) {
 			throw new IllegalArgumentException();
+		}
 		linea = figura;
 
 	}
 
 	public void addLineaPoligonal(LineaPoligonal figura) {
-		if (figura == null)
+		if (figura == null) {
 			throw new IllegalArgumentException();
+		}
 		lineaPoligonal = figura;
 
 	}
 
 	public void addPoligono(Poligono figura) {
-		if (figura == null)
+		if (figura == null) {
 			throw new IllegalArgumentException();
+		}
 		poligono = figura;
 
 	}
 
 	public void addRectangulo(Rectangulo figura) {
-		if (figura == null)
+		if (figura == null) {
 			throw new IllegalArgumentException();
+		}
 		rectangulo = figura;
 
 	}
 
 	public String toSvg() {
-		
-	
-		StringBuilder sb =new StringBuilder();
-	sb.append("<svg viewBox=\"0 0 ").append(ancho).append(" ").append(alto).append("\" xmlns=\"http://www.w3.org/2000/svg\">\n");
-	sb.append("       ").append(circulo.toSvg()).append("\n");
-	sb.append("       ").append(elipse.toSvg()).append("\n");
-	sb.append("       ").append(linea.toSvg()).append("\n");
-	sb.append("       ").append(lineaPoligonal.toSvg()).append("\n");
-	sb.append("       ").append(poligono.toSvg()).append("\n");
-	sb.append("       ").append(rectangulo.toSvg()).append("\n");
-	sb.append("</svg>");
-		
-		
+		StringBuilder sb = new StringBuilder();
+		sb.append("<svg viewBox=\"0 0 ").append(ancho).append(" ").append(alto).append("\" xmlns=\"http://www.w3.org/2000/svg\">\n");
+
+		if (circulo != null) {
+			sb.append("       ").append(circulo.toSvg()).append("\n");
+		}
+		if (elipse != null) {
+			sb.append("       ").append(elipse.toSvg()).append("\n");
+		}
+		if (linea != null) {
+			sb.append("       ").append(linea.toSvg()).append("\n");
+		}
+		if (lineaPoligonal != null) {
+			sb.append("       ").append(lineaPoligonal.toSvg()).append("\n");
+		}
+		if (poligono != null) {
+			sb.append("       ").append(poligono.toSvg()).append("\n");
+		}
+		if (rectangulo != null) {
+			sb.append("       ").append(rectangulo.toSvg()).append("\n");
+		}
+
+		sb.append("</svg>");
+
 		return sb.toString();
 	}
 }

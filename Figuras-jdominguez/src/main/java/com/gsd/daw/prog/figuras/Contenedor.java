@@ -69,11 +69,11 @@ public class Contenedor {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<svg viewBox=\"0 0 ").append(ancho).append(" ").append(alto).append("\" xmlns=\"http://www.w3.org/2000/svg\">\n");
 
-		if (elipse != null) {
-			sb.append("       ").append(elipse.toSvg()).append("\n");
-		}
 		if (circulo != null) {
 			sb.append("       ").append(circulo.toSvg()).append("\n");
+		}
+		if (elipse != null) {
+			sb.append("       ").append(elipse.toSvg()).append("\n");
 		}
 		if (linea != null) {
 			sb.append("       ").append(linea.toSvg()).append("\n");

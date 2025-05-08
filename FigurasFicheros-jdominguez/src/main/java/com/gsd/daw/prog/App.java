@@ -14,7 +14,9 @@ public class App {
 
 	public static void main(String[] args) {
 		if (args.length < 2) {
-			throw new IllegalArgumentException("Se necesitan 2 argumentos para continuar");
+
+			System.err.println("Se necesitan 2 argumentos para continuar");
+			return;
 		}
 		String ficheroFiguras = args[0];
 		String ficheroSvg = args[1];

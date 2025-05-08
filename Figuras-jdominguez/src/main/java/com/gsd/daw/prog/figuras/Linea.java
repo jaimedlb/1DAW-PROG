@@ -24,7 +24,7 @@ public void setStroke(Stroke stroke) {
 public String toSvg() {
 	StringBuilder sb= new StringBuilder();	
 	sb.append("<line x1=\"").append(punto1.getX()).append("\" y1=\"").append(punto1.getY())
-	.append("\" x2=\"").append(punto2.getX()).append("\" y2=\"").append(punto2.getY()).append("\" ").append(stroke.toSvg()).append(" fill=\"none\"/>");
+	.append("\" x2=\"").append(punto2.getX()).append("\" y2=\"").append(punto2.getY()).append("\" ").append(stroke.toSvg()).append("/>");
 	
 	return sb.toString();
 }
