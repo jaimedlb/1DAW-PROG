@@ -1,49 +1,49 @@
 package com.gsd.daw.prog;
 
-
-import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 
 /**
  * @author jdominguez
  */
-public class App { 
-    public static void main(String[] args) {
-    	if(args.length<2) {
+public class App {
+
+	public static void main(String[] args) {
+		if (args.length < 2) {
 			throw new IllegalArgumentException("Se necesitan 2 argumentos para continuar");
 		}
-    	String ficheroFiguras = args[0];
-    	String ficheroSvg =args[1];
-    	
+		String ficheroFiguras = args[0];
+		String ficheroSvg = args[1];
 
 		Scanner inputScannerFromFile = null;
-		File f = new File(args[0]);
+		File f = new File(ficheroFiguras);
 		try {
 			inputScannerFromFile = new Scanner(f);
-			
-			
+
 		} catch (FileNotFoundException e) {
-			System.err.println("ERROR: no se puede abrir [" + args[0] + "]\n" + e.getMessage());
+			System.err.println("ERROR: no se puede abrir [" + ficheroFiguras + "]\n" + e.getMessage());
 			return;
 		}
-List<List<String>> lista= new ArrayList<>();
 		while (inputScannerFromFile.hasNext()) {
-			List<String> sublista= new ArrayList<>();
-			String line = inputScannerFromFile.nextLine();
-			String[] parametros= line.split(" ");
-			for(String parametro:parametros) {
-				sublista.add(parametro);
-			}
-			lista.add(sublista);
-			
-		}
 
+			String line = inputScannerFromFile.nextLine();
+
+			if(!Utilidades.comprobarLineas(line)) {
+				return;
+			}
+
+		}
+		
+		try (FileWriter writer = new FileWriter(ficheroSvg)) {
+            writer.write(Utilidades.devolverContenedor().toSvg());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 		inputScannerFromFile.close();
 
-
-    }
+	}
 }

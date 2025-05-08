@@ -10,16 +10,16 @@ public class Color {
 
 		if (red == null || green == null || blue == null)
 			throw new IllegalArgumentException();
-		this.red = red & 0xFF;
-		this.green = green & 0xFF;
-		this.blue = blue & 0xFF;
+		this.red = red &0xFF;
+		this.green = green &0xFF;
+		this.blue = blue &0xFF;
 
 	}
 
 	public String toSvg() {
 		StringBuilder sb = new StringBuilder();
 
-		sb.append("stroke=\"(").append(red).append(",").append(green).append(",").append(blue).append(")\"");
+		sb.append("stroke=\"rgb(").append(red).append(",").append(green).append(",").append(blue).append(")\"");
 
 		return sb.toString();
 	}
