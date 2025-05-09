@@ -30,21 +30,24 @@ public class App {
 			System.err.println("ERROR: no se puede abrir [" + ficheroFiguras + "]\n" + e.getMessage());
 			return;
 		}
+		boolean noError=true;
 		while (inputScannerFromFile.hasNext()) {
 
 			String line = inputScannerFromFile.nextLine();
 
 			if(!Utilidades.comprobarLineas(line)) {
+				noError=false;
 				return;
 			}
 
 		}
-		
-		try (FileWriter writer = new FileWriter(ficheroSvg)) {
-            writer.write(Utilidades.devolverContenedor().toSvg());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		if(noError==true) {			
+			try (FileWriter writer = new FileWriter(ficheroSvg)) {
+				writer.write(Utilidades.devolverContenedor().toSvg());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		inputScannerFromFile.close();
 
 	}
