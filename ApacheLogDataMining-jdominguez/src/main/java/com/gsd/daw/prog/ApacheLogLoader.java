@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class ApacheLogLoader {
 	public static final String SGBD_MYSQL = "MYSQL";
@@ -24,7 +25,7 @@ public class ApacheLogLoader {
 		String nombreFichero = args[4];
 
 		// Creacion de la conexión
-
+		
 		Connection conn = generarConexion(ip, estancia, usuario, contrasena);
 		if (conn == null) {
 			return;
@@ -41,12 +42,7 @@ public class ApacheLogLoader {
 		}
 		int numeroLineasLeidas = datos.keySet().iterator().next();
 		String[][] datosOrganizados = datos.get(numeroLineasLeidas);
-		System.out.println(datosOrganizados[0][0]);
-		System.out.println(datosOrganizados[0][1]);
-		System.out.println(datosOrganizados[0][2]);
-		System.out.println(datosOrganizados[0][3]);
-		System.out.println(datosOrganizados[0][4]);
-		System.out.println(datosOrganizados[0][5]);
+		
 
 		System.out.println("INFO: leidas [" + numeroLineasLeidas + "] lineas del fichero.");
 		// Conversion de estructuras planas a objetos del modelo
