@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-
 /**
  * @author jdominguez
  */
@@ -30,18 +29,21 @@ public class App {
 			System.err.println("ERROR: no se puede abrir [" + ficheroFiguras + "]\n" + e.getMessage());
 			return;
 		}
-		boolean noError=true;
+		boolean noError = true;
+		if(!inputScannerFromFile.hasNext()) {
+			return;
+		}
 		while (inputScannerFromFile.hasNext()) {
 
 			String line = inputScannerFromFile.nextLine();
 
-			if(!Utilidades.comprobarLineas(line)) {
-				noError=false;
+			if (!Utilidades.comprobarLineas(line)) {
+				noError = false;
 				return;
 			}
 
 		}
-		if(noError==true) {			
+		if (noError == true) {
 			try (FileWriter writer = new FileWriter(ficheroSvg)) {
 				writer.write(Utilidades.devolverContenedor().toSvg());
 			} catch (IOException e) {
