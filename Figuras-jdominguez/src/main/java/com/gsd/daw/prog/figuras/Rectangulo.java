@@ -29,7 +29,7 @@ public class Rectangulo {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<rect x=\"").append(origen.getX()).append("\" y=\"").append(origen.getY()).append("\" width=\"")
 				.append(ancho).append("\" height=\"").append(alto).append("\" ");
-		sb.append(stroke.toSvg()).append(" fill=\"none\">");
+		sb.append(stroke.toSvg()).append(" fill=\"none\"/>");
 
 		return sb.toString();
 	}
