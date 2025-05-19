@@ -126,7 +126,7 @@ public class ApacheLogLoader {
 			break;
 		case SGBD_MYSQL:
 			conexionString = String.format("jdbc:mysql://%s:3306/%s?serverTimezone=UTC", ip, estancia);
-			System.out.println(conexionString);
+			
 			break;
 		default:
 			conexionString = String.format("jdbc:mysql://%s:3306/%s?serverTimezone=UTC", ip, estancia);
